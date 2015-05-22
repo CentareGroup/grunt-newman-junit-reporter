@@ -42,7 +42,8 @@ module.exports = function(grunt) {
         
         // convert to junit
         newmanResults.results.forEach(function(result) {
-          grunt.log.writeln(result.name);
+          grunt.log.debug(result.name);
+          
           for(var test in result.tests) {
             // build the test case
             var testCase = suite.testCase().className(result.name).name(test);
@@ -65,16 +66,13 @@ module.exports = function(grunt) {
                 
       });
 
-      // Handle options.
-      // junitSuites += options.punctuation;
-
       // Write the destination file.
       junitBuilder.writeTo(f.dest);
 
       // Print a success message.
       grunt.log.writeln('File "' + f.dest + '" created.');
       
-      grunt.log.writeln('Passed: ' + passCount + ' Failed: ' + failCount);
+      grunt.log.writeln('Tests Passed: ' + passCount + ' Failed: ' + failCount);
     });    
   });
 

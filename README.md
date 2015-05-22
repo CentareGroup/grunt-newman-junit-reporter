@@ -37,47 +37,30 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
-Type: `String`
-Default value: `',  '`
-
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
+Currently no options exist.
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, the default options are used to convert all of the postman/newman result json data into a junit xml report file.
 
 ```js
 grunt.initConfig({
   newman_junit_reporter: {
     options: {},
     files: {
-      'dest/default_options': ['src/testing', 'src/123'],
+      'dest/junit-report.xml': ['results.json'],
     },
   },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  newman_junit_reporter: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+  // run newman to get a sample results file
+  newman: {
+      all: {
+          options: {
+              collection: '--- your collection ---',
+              outputFile: 'results.json',
+              responseHandler: 'TestResponseHandler'
+          }
+      }
   },
 });
 ```
