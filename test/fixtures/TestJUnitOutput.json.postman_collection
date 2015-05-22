@@ -1,0 +1,79 @@
+{
+	"id": "d5948243-858c-cdfe-1be1-b95a48571260",
+	"name": "TestJUnitOutput",
+	"description": "",
+	"order": [],
+	"folders": [
+		{
+			"id": "39273dd0-7f19-83bf-f909-9c1c008b68ad",
+			"name": "Folder 1",
+			"description": "",
+			"write": true,
+			"order": [
+				"1dbf3656-e523-15fc-9952-5348a31e61cd",
+				"4fcd94ad-464a-98b3-a240-61829e7fef65"
+			],
+			"collection_name": "TestJUnitOutput",
+			"collection_owner": "47189",
+			"collection_id": "d5948243-858c-cdfe-1be1-b95a48571260",
+			"collection": "d5948243-858c-cdfe-1be1-b95a48571260",
+			"owner": "47189"
+		}
+	],
+	"timestamp": 1432332028548,
+	"synced": false,
+	"owner": "47189",
+	"sharedWithTeam": false,
+	"subscribed": false,
+	"remoteLink": "",
+	"public": false,
+	"write": true,
+	"requests": [
+		{
+			"id": "1dbf3656-e523-15fc-9952-5348a31e61cd",
+			"headers": "",
+			"url": "google.com",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"collectionId": "d5948243-858c-cdfe-1be1-b95a48571260",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Google Success",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1432332134371,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "39273dd0-7f19-83bf-f909-9c1c008b68ad",
+			"synced": false,
+			"rawModeData": ""
+		},
+		{
+			"id": "4fcd94ad-464a-98b3-a240-61829e7fef65",
+			"headers": "",
+			"url": "google.com",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "POST",
+			"collectionId": "d5948243-858c-cdfe-1be1-b95a48571260",
+			"data": [],
+			"dataMode": "raw",
+			"name": "Google Fail",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1432332176299,
+			"version": 2,
+			"responses": [],
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"folder": "39273dd0-7f19-83bf-f909-9c1c008b68ad",
+			"synced": false,
+			"rawModeData": "{\n}"
+		}
+	]
+}
