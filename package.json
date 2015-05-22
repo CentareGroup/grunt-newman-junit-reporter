@@ -1,7 +1,7 @@
 {
   "name": "grunt-newman-junit-reporter",
   "description": "Converts newman json output to junit xml report",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/CentareGroup/grunt-newman-junit-reporter",
   "author": {
     "name": "Michael Weinand",
@@ -38,7 +38,10 @@
     "grunt": "~0.4.5"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "newman",
+    "postman",
+    "junit"
   ],
   "dependencies": {
     "junit-report-builder": "^1.0.0"
