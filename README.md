@@ -47,10 +47,12 @@ In this example, the default options are used to convert all of the postman/newm
 ```js
 grunt.initConfig({
   newman_junit_reporter: {
-    options: {},
-    files: {
-      'dest/junit-report.xml': ['results.json'],
-    },
+    your_target: {
+      options: {},
+      files: {
+        'dest/junit-report.xml': ['results.json'],
+      }
+    }
   },
   // run newman to get a sample results file
   newman: {
