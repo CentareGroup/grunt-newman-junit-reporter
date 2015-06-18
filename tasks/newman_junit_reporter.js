@@ -9,6 +9,7 @@
 'use strict';
 
 var junitBuilder = require('junit-report-builder');
+var _ = require('underscore');
 
 module.exports = function(grunt) {
 
@@ -37,31 +38,46 @@ module.exports = function(grunt) {
         }
       }).forEach(function(filepath) {
         // Read file source.
-        var newmanResults = grunt.file.readJSON(filepath);
-        var suite = junitBuilder.testSuite().name(filepath);
+        var newmanResults = grunt.file.readJSON(filepath);        
         
         // convert to junit
-        newmanResults.results.forEach(function(result) {
-          grunt.log.debug(result.name);
-          
-          for(var test in result.tests) {
-            // build the test case
-            var testCase = suite.testCase().className(result.name).name(test);
+        newmanResults.collection.folders.forEach(function(folder) {
+          var suite = junitBuilder.testSuite().name(folder.name);
+         
+        
+          folder.order.forEach(function(testId) {
             
-            // did the test pass?
-            var testPassed = result.tests[test];
+            var result = _.find(newmanResults.results, function(r) { return r.id === testId; });
             
-            if (testPassed) {
-              passCount++;
-            } else {
-              failCount++;
-            }
-            
-            if (!testPassed)
+            if(!result)
             {
-              testCase.failure();
+              return;
             }
-          }
+            
+            grunt.log.debug(result.name);
+            
+            for(var test in result.tests) {
+              // build the test case
+              var testCase = suite.testCase().className(result.name).name(test);
+              
+              // did the test pass?
+              var testPassed = result.tests[test];
+              
+              if (testPassed) {
+                passCount++;
+              } else {
+                failCount++;
+              }
+              
+              /// testCase.time(result.meanResponseTime);
+              
+              if (!testPassed)
+              {
+                var failMessage = result.url + ' returned ' + result.responseCode.code; 
+                testCase.failure(failMessage);
+              }
+            }            
+          });
         });
                 
       });

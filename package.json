@@ -1,7 +1,7 @@
 {
   "name": "grunt-newman-junit-reporter",
   "description": "Converts newman json output to junit xml report",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "homepage": "https://github.com/CentareGroup/grunt-newman-junit-reporter",
   "author": {
     "name": "Michael Weinand",
@@ -32,7 +32,8 @@
     "grunt-contrib-clean": "^0.5.0",
     "grunt-contrib-jshint": "^0.9.2",
     "grunt-contrib-nodeunit": "^0.3.3",
-    "grunt-newman": "0.0.3"
+    "grunt-newman": "0.0.3",
+    "underscore": "^1.8.3"
   },
   "peerDependencies": {
     "grunt": "~0.4.5"

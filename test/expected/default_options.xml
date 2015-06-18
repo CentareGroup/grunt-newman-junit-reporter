@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="results.json">
+  <testsuite name="Folder 1">
     <testcase classname="Google Success" name="Status code is 200"/>
     <testcase classname="Google Fail" name="Status code is 200">
-      <failure/>
+      <failure message="google.com returned 405"/>
     </testcase>
   </testsuite>
 </testsuites>
